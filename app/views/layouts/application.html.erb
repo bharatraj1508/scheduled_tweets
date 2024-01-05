@@ -14,7 +14,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <style>
+    .body-bg-color {
+      background-color: #FFFBF5;
+      }
+  </style>
+
+  <body class="body-bg-color">
     <%= render partial: "shared/navbar" %>
     <div class="container">
       <%= render partial: "shared/flash" %>

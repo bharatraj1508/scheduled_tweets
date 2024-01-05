@@ -1,20 +1,34 @@
-<h1> Singup </h1>
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-md-6">
+      <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+        <div class="card-body">
+          <h1 class="card-title">Signup</h1>
 
-<%= form_with model: @user, url: sign_up_path, data: {turbo: false} do |form| %>
-    <%= render "shared/form_error", form: form  %>
-    <div class="mb-3">
-        <%= form.label :email %>
-        <%= form.text_field :email, class: "form-control", placeholder: "bharat@gmail.com" %>
+          <%= form_with model: @user, url: sign_up_path, data: { turbo: false } do |form| %>
+            <%= render "shared/form_error", form: form  %>
+
+            <div class="mb-3">
+              <%= form.label :email %>
+              <%= form.text_field :email, class: "form-control", placeholder: "bharat@gmail.com" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :password %>
+              <%= form.password_field :password, class: "form-control", placeholder: "password" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :password_confirmation %>
+              <%= form.password_field :password_confirmation, class: "form-control", placeholder: "password" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.submit "Sign Up", class: "btn btn-dark btn-block"%>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-        <%= form.label :password %>
-        <%= form.password_field :password, class: "form-control", placeholder: "password" %>
-    </div>
-    <div class="mb-3">
-        <%= form.label :password_confirmation %>
-        <%= form.password_field :password_confirmation, class: "form-control", placeholder: "password" %>
-    </div>
-    <div class="mb-3">
-        <%= form.submit "Sign Up", class: "btn btn-primary"%>
-    </div>
-<% end %>
+  </div>
+</div>

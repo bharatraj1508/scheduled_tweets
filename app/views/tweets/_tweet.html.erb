@@ -16,7 +16,7 @@
 
         <% if tweet.published? %>
         <div class="mb-3">
-          <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank, class: "btn btn-primary" %>
+          <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank, class: "btn btn-dark" %>
         </div>
         <% else %>
         <div class="mb-3">
