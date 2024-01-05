@@ -1,0 +1,31 @@
+<div class="container d-flex justify-content-center mt-5">
+  <div class="mb-4 card card-body shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="max-width: 700px;">
+    <div class="d-flex flex-column">
+        <div class="d-flex align-items-center shadow-sm p-3 mb-5 bg-body-gray rounded card-header ">
+            <%= image_tag tweet.twitter_account.image, class: "rounded-circle me-2", style: "max-width: 40px; max-height: 40px;" %>
+        
+            <div class="fw-bold text-dark">
+                <%= tweet.twitter_account.name %>
+            </div>
+            <%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: :_blank, class: "text-secondary text-decoration-none" %>
+
+        </div>
+        <div class="mb-3">
+            <%= tweet.body %>
+        </div>
+
+        <% if tweet.published? %>
+        <div class="mb-3">
+          <%= link_to "View Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank, class: "btn btn-primary" %>
+        </div>
+        <% else %>
+        <div class="mb-3">
+          Scheduled for <%= l tweet.publish_at, format: :long %>
+        </div>
+        <div>
+          <%= link_to "Edit Tweet", edit_tweet_path(tweet), class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
