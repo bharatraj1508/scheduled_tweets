@@ -1,16 +1,28 @@
-<h1> Edit Password </h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="max-width: 800px;">
+        <div class="card-body">
+          <h1 class="card-title">Edit Password</h1>
+          <%= form_with model: Current.user, url: edit_password_path, data: { turbo: false } do |form| %>
+            <%= render partial: "shared/form_error", locals: { form: form } %>
 
-<%= form_with model: Current.user, url: edit_password_path, data: {turbo: false} do |form| %>
-    <%= render partial: "shared/form_error", locals: { form: form } %>
-    <div class="mb-3">
-        <%= form.label :password %>
-        <%= form.password_field :password, class: "form-control", placeholder: "password" %>
+            <div class="mb-3">
+              <%= form.label :password %>
+              <%= form.password_field :password, class: "form-control", placeholder: "Password" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.label :password_confirmation %>
+              <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
+            </div>
+
+            <div class="mb-3">
+              <%= form.submit "Update Password", class: "btn btn-dark btn-block" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-        <%= form.label :password_confirmation %>
-        <%= form.password_field :password_confirmation, class: "form-control", placeholder: "password" %>
-    </div>
-    <div class="mb-3">
-        <%= form.submit "Update Password", class: "btn btn-dark"%>
-    </div>
-<% end %>
+  </div>
+</div>
